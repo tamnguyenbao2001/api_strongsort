@@ -88,8 +88,8 @@ def visualisation(frame, x1, y1, x2, y2):                              # Input: 
 app = Flask(__name__)
 @app.route('/strongsort',methods=['POST'])
 def handleStrongSORT():
-    input_txt = 'dataserver_1.txt'   #file txt: dataserver_1.txt
-    video_txt = 'video_server_1.avi'  #file video video_server_1.avi
+    input_txt = request.get_json()['input_txt']   #file txt: dataserver_1.txt
+    video_txt = request.get_json()['input_video']  #file video video_server_1.avi
     a = open('eee.txt', 'w')
     id_kpts = {}
     names = {'worker': 1,'supervisor': 2,'CEO': 3,'Director': 4,'truck':5}
@@ -152,8 +152,8 @@ def handleStrongSORT():
 
 @app.route('/action',methods=['POST'])
 def handleAction():
-    input_txt = 'dataserver_1.txt'   #file txt: dataserver_1.txt
-    video_txt = 'video_server_1.avi'  #file video video_server_1.avi
+    input_txt = request.get_json()['input_txt']   #file txt: dataserver_1.txt
+    video_txt = request.get_json()['input_video']  #file video video_server_1.avi
     a = open('qqq.txt', 'w')
     id_kpts = {}
     names = {'worker': 1,'supervisor': 2,'CEO': 3,'Director': 4,'truck':5}
